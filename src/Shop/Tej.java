@@ -15,13 +15,11 @@ public class Tej {
     private final double FELZSIROS = 0.028;
 
 
-
-
-    private int urtartalom;
-    private String gyarto;
-    private Date szavatosagiido;
-    private double zsirtartalom;
-    private long ar;
+    protected int urtartalom;
+    protected String gyarto;
+    protected Date szavatosagiido;
+    protected double zsirtartalom;
+    protected long ar;
 
     public Tej(long vonalKod, int urtartalom, String gyarto, Date szavatosagiido, double zsirtartalom, long ar) {
         this.vonalKod = vonalKod;
