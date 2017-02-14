@@ -5,14 +5,14 @@ import java.util.Date;
 /**
  * Created by Mudzso on 2017.02.14..
  */
-public class Tej {
+public abstract class Tej {
 
-    private long vonalKod;
-    private final int LITER = 4;
-    private final int FELLITER = 2;
-    private final int POHAR = 1;
-    private final double ZSIROS = 0.036;
-    private final double FELZSIROS = 0.028;
+    public long vonalKod;
+    public final int LITER = 4;
+    public final int FELLITER = 2;
+    public final int POHAR = 1;
+    public final double ZSIROS = 0.036;
+    public final double FELZSIROS = 0.028;
 
 
     protected int urtartalom;
