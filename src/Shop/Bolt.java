@@ -1,9 +1,10 @@
-/**
+package Shop; /**
  * Created by Mudzso on 2017.02.14..
  */
-import Shop.Elelmiszer;
-import Shop.Tej;
-import Shop.Sajt;
+import Shop.Áruk.Elelmiszer;
+import Shop.Áruk.Kivitel.TulSokLevonasKivitel;
+import Shop.Áruk.Tej;
+import Shop.Áruk.Sajt;
 
 import java.util.Hashtable;
 import java.util.Map;

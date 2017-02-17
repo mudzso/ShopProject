@@ -1,13 +1,14 @@
-package Shop;
+package Shop.Áruk;
 
 
-import javax.xml.transform.stream.StreamResult;
+import Shop.Áruk.Elelmiszer;
+
 import java.util.Date;
 
 /**
  * Created by Mudzso on 2017.02.17..
  */
-public class Sajt extends Elelmiszer{
+public class Sajt extends Elelmiszer {
 
     protected double suly;
     protected double zsirtartalom;

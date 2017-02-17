@@ -1,21 +1,20 @@
-package Shop;
+package Shop.Áruk;
 
 import java.util.Date;
+import Shop.Aru;
 
 /**
  * Created by Mudzso on 2017.02.17..
  */
-public  abstract class Elelmiszer {
+public  abstract class Elelmiszer extends Aru{
 
 
-    protected long vonalKod;
-    protected String gyarto;
+
     protected Date szavatosagiido;
 
 
     public Elelmiszer(long vonalKod, String gyarto, Date szavatosagiido) {
-        this.vonalKod = vonalKod;
-        this.gyarto = gyarto;
+        super(vonalKod,gyarto);
         this.szavatosagiido = szavatosagiido;
     }
 

@@ -1,4 +1,6 @@
-package Shop;
+package Shop.Áruk;
+
+import Shop.Áruk.Elelmiszer;
 
 import java.util.Date;
 
@@ -7,25 +9,26 @@ import java.util.Date;
  */
 public abstract class Tej extends Elelmiszer {
 
-    public long vonalKod;
-    public final int LITER = 4;
-    public final int FELLITER = 2;
-    public final int POHAR = 1;
-    public final double ZSIROS = 0.036;
-    public final double FELZSIROS = 0.028;
+    public static final int LITER = 4;
+    public static final int FELLITER = 2;
+    public static final int POHAR = 1;
+    public static final double ZSIROS = 0.036;
+    public static final double FELZSIROS = 0.028;
 
 
     protected int urtartalom;
-    protected Date szavatosagiido;
     protected double zsirtartalom;
     protected long ar;
 
-    public Tej(long vonalKod, String gyarto, Date szavatosagiido, long vonalKod1, int urtartalom, String gyarto1, Date szavatosagiido1, double zsirtartalom, long ar) {
+    public Tej(long vonalKod, String gyarto, Date szavatosagiido, int urtartalom, double zsirtartalom) {
         super(vonalKod, gyarto, szavatosagiido);
-        this.vonalKod = vonalKod1;
         this.urtartalom = urtartalom;
-        this.gyarto = gyarto1;
-        this.szavatosagiido = szavatosagiido1;
+        this.zsirtartalom = zsirtartalom;
+    }
+
+    public Tej(long vonalKod, String gyarto, Date szavatosagiido, int urtartalom, double zsirtartalom, long ar) {
+        super(vonalKod, gyarto, szavatosagiido);
+        this.urtartalom = urtartalom;
         this.zsirtartalom = zsirtartalom;
         this.ar = ar;
     }
