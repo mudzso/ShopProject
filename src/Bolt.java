@@ -1,25 +1,26 @@
 /**
  * Created by Mudzso on 2017.02.14..
  */
+import Shop.Elelmiszer;
 import Shop.Tej;
+import Shop.Sajt;
 
 import java.util.Hashtable;
 import java.util.Map;
-import java.util.Vector;
 
 public class Bolt
 {
     private String nev;
     private String cim;
     private String tulajdonos;
-    private Hashtable<Tej,Integer> tejpult;
+    private Hashtable<Long,BoltBejegyzes> elelmiszerpult;
     private int flag;
 
-    public Bolt(String nev, String cim, String tulajdonos, Hashtable<Tej,Integer> tejpult) {
+    public Bolt(String nev, String cim, String tulajdonos, Hashtable<Long,BoltBejegyzes> elelmiszerpult) {
         this.nev = nev;
         this.cim = cim;
         this.tulajdonos = tulajdonos;
-        this.tejpult = tejpult;
+        this.elelmiszerpult = elelmiszerpult;
     }
 
     public Bolt(String nev, String cim, String tulajdonos) {
@@ -40,66 +41,104 @@ public class Bolt
         return tulajdonos;
     }
 
+    public boolean vanMegAdottAru(Class c){
+        boolean van = false;
+        for (Map.Entry<Long,BoltBejegyzes>entry:elelmiszerpult.entrySet()) {
+            if (c.isInstance(entry.getValue().getE())) {
+                van = true;
+
+            }
+
+        }
+        return van;
+    }
     public boolean vanMegTej(){
         boolean van = false;
-        if(tejpult.size() > 0){
-            van = true;
+        for (Map.Entry<Long, BoltBejegyzes>entry:elelmiszerpult.entrySet()) {
+            if (entry.getValue().getE() instanceof Tej) {
+                van = true;
+
+            }
 
         }
         return van;
     }
 
-    public Tej vasarolTej(long vonalkod){
 
-        for (Map.Entry<Tej,Integer>entry:tejpult.entrySet()) {
-            if(entry.getKey().getVonalKod() == vonalkod){
-                tejpult.put(entry.getKey(),tejpult.get(entry.getKey())-1);
-                return entry.getKey();
+    public boolean vanMegSajt(){
+        boolean van = false;
+        for (Map.Entry<Long, BoltBejegyzes>entry:elelmiszerpult.entrySet()) {
+            if (entry.getValue().getE() instanceof Sajt) {
+                van = true;
+
             }
 
         }
-        return null;
+        return van;
     }
 
-    public void feltoltTej(Tej m){
-        if (tejpult.containsKey(m)){
-            tejpult.put(m,tejpult.get(m)+1);
-        }else {
-            tejpult.put(m,1);
+    public void vasarolElmiszert(long vonalkod,long mennyiseg){
+
+        for (Map.Entry<Long,BoltBejegyzes>entry: elelmiszerpult.entrySet()) {
+            if(entry.getKey() == vonalkod){
+                elelmiszerpult.get(vonalkod).levonMennyiseg(mennyiseg);
+            }
+
         }
     }
 
+    public void torolElelmiszert(long vonalKod){
+        for (Map.Entry<Long, BoltBejegyzes>entry:elelmiszerpult.entrySet()) {
+            if (entry.getKey() == vonalKod){
+                elelmiszerpult.remove(vonalKod);
+            }
+        }
+
+    }
+
+    public void feltoltElelmiszerrel(long vonalKod, long mennyiseg){
+        for (Map.Entry<Long, BoltBejegyzes>entry:elelmiszerpult.entrySet()) {
+            if (entry.getKey() == vonalKod){
+                elelmiszerpult.get(vonalKod).addMennyiseg(mennyiseg);
+            }
+        }
+    }
+
+    public void feltoltUjElelmiszerrel(Elelmiszer e,long mennyiseg, long ar){
+
+        elelmiszerpult.put(e.getVonalKod(),new BoltBejegyzes(e,mennyiseg,ar));
+    }
 
 
     public class BoltBejegyzes{
 
-        private Tej t;
-        private int mennyiseg;
-        private int ar;
+        private Elelmiszer e;
+        private long mennyiseg;
+        private long ar;
 
-        public BoltBejegyzes(Tej t, int mennyiseg, int ar) {
-            this.t = t;
+        public BoltBejegyzes(Elelmiszer e, long mennyiseg, long ar) {
+            this.e = e;
             this.mennyiseg = mennyiseg;
             this.ar = ar;
         }
 
-        public Tej getT() {
-            return t;
+        public Elelmiszer getE() {
+            return e;
         }
 
-        public void setT(Tej t) {
-            this.t = t;
+        public void setE(Elelmiszer e) {
+            this.e = e;
         }
 
-        public int getMennyiseg() {
+        public long getMennyiseg() {
             return mennyiseg;
         }
 
-        public void setMennyiseg(int mennyiseg) {
+        public void setMennyiseg(long mennyiseg) {
             this.mennyiseg = mennyiseg;
         }
 
-        public int getAr() {
+        public long getAr() {
             return ar;
         }
 
@@ -107,17 +146,16 @@ public class Bolt
             this.ar = ar;
         }
 
-        public void addMennyiseg(int mennyiseg){
+        public void addMennyiseg(long mennyiseg){
 
             this.mennyiseg += mennyiseg;
 
 
         }
 
-        public void levonMennyiseg(int mennyiseg){
+        public void levonMennyiseg(long mennyiseg){
 
             this.mennyiseg -= mennyiseg;
-
         }
 
 

@@ -9,11 +9,8 @@ import java.util.Date;
  */
 public class Sajt extends Elelmiszer{
 
-    long vonalKod;
-    double suly;
-    String gyarto;
-    Date szavatosagiido;
-    double zsirtartalom;
+    protected double suly;
+    protected double zsirtartalom;
 
     public Sajt(long vonalKod, String gyarto, Date szavatosagiido, long vonalKod1, double suly, String gyarto1, Date szavatosagiido1, double zsirtartalom) {
         super(vonalKod, gyarto, szavatosagiido);

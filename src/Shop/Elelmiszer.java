@@ -8,15 +8,17 @@ import java.util.Date;
 public  abstract class Elelmiszer {
 
 
-    long vonalKod;
-    String gyarto;
-    Date szavatosagiido;
+    protected long vonalKod;
+    protected String gyarto;
+    protected Date szavatosagiido;
+
 
     public Elelmiszer(long vonalKod, String gyarto, Date szavatosagiido) {
         this.vonalKod = vonalKod;
         this.gyarto = gyarto;
         this.szavatosagiido = szavatosagiido;
     }
+
 
     public long getVonalKod() {
         return vonalKod;

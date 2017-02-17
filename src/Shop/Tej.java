@@ -16,7 +16,6 @@ public abstract class Tej extends Elelmiszer {
 
 
     protected int urtartalom;
-    protected String gyarto;
     protected Date szavatosagiido;
     protected double zsirtartalom;
     protected long ar;

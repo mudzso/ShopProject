@@ -7,7 +7,7 @@ import java.util.Date;
  */
 public class TartosTej extends Tej{
 
-    public TartosTej(long vonalKod, int urtartalom, String gyarto, Date szavatosagiido, double zsirtartalom, long ar) {
-        super(vonalKod, urtartalom, gyarto, szavatosagiido, zsirtartalom, ar);
+    public TartosTej(long vonalKod, String gyarto, Date szavatosagiido, long vonalKod1, int urtartalom, String gyarto1, Date szavatosagiido1, double zsirtartalom, long ar) {
+        super(vonalKod, gyarto, szavatosagiido, vonalKod1, urtartalom, gyarto1, szavatosagiido1, zsirtartalom, ar);
     }
 }
