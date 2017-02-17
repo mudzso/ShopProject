@@ -5,7 +5,7 @@ import java.util.Date;
 /**
  * Created by Mudzso on 2017.02.14..
  */
-public abstract class Tej {
+public abstract class Tej extends Elelmiszer {
 
     public long vonalKod;
     public final int LITER = 4;
@@ -21,11 +21,12 @@ public abstract class Tej {
     protected double zsirtartalom;
     protected long ar;
 
-    public Tej(long vonalKod, int urtartalom, String gyarto, Date szavatosagiido, double zsirtartalom, long ar) {
-        this.vonalKod = vonalKod;
+    public Tej(long vonalKod, String gyarto, Date szavatosagiido, long vonalKod1, int urtartalom, String gyarto1, Date szavatosagiido1, double zsirtartalom, long ar) {
+        super(vonalKod, gyarto, szavatosagiido);
+        this.vonalKod = vonalKod1;
         this.urtartalom = urtartalom;
-        this.gyarto = gyarto;
-        this.szavatosagiido = szavatosagiido;
+        this.gyarto = gyarto1;
+        this.szavatosagiido = szavatosagiido1;
         this.zsirtartalom = zsirtartalom;
         this.ar = ar;
     }

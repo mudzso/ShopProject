@@ -7,7 +7,7 @@ import java.util.Date;
 /**
  * Created by Mudzso on 2017.02.17..
  */
-public class Sajt {
+public class Sajt extends Elelmiszer{
 
     long vonalKod;
     double suly;
@@ -15,13 +15,16 @@ public class Sajt {
     Date szavatosagiido;
     double zsirtartalom;
 
-    public Sajt(long vonalKod, double suly, String gyarto, Date szavatosagiido, double zsirtartalom) {
-        this.vonalKod = vonalKod;
+    public Sajt(long vonalKod, String gyarto, Date szavatosagiido, long vonalKod1, double suly, String gyarto1, Date szavatosagiido1, double zsirtartalom) {
+        super(vonalKod, gyarto, szavatosagiido);
+        this.vonalKod = vonalKod1;
         this.suly = suly;
-        this.gyarto = gyarto;
-        this.szavatosagiido = szavatosagiido;
+        this.gyarto = gyarto1;
+        this.szavatosagiido = szavatosagiido1;
         this.zsirtartalom = zsirtartalom;
     }
+
+
 
     public long getVonalKod() {
         return vonalKod;
