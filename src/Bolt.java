@@ -81,7 +81,12 @@ public class Bolt
 
         for (Map.Entry<Long,BoltBejegyzes>entry: elelmiszerpult.entrySet()) {
             if(entry.getKey() == vonalkod){
-                elelmiszerpult.get(vonalkod).levonMennyiseg(mennyiseg);
+                try {
+                    elelmiszerpult.get(vonalkod).levonMennyiseg(mennyiseg);
+                }catch (TulSokLevonasKivitel e){
+                    e.printStackTrace();
+                }
+
             }
 
         }
@@ -153,9 +158,15 @@ public class Bolt
 
         }
 
-        public void levonMennyiseg(long mennyiseg){
+        public void levonMennyiseg(long mennyiseg) throws TulSokLevonasKivitel{
 
-            this.mennyiseg -= mennyiseg;
+            if(this.mennyiseg - mennyiseg <= 0){
+                throw new TulSokLevonasKivitel("tul sok levonnás");
+            }
+            else {
+
+                this.mennyiseg -= mennyiseg;
+            }
         }
 
 
